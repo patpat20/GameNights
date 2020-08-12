@@ -25,5 +25,8 @@ module.exports = {
       '/api': 'http://localhost:3000/'
     },
     hot: true,
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 }

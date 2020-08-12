@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 // import MainContainer from './containers/MainContainer.jsx';
+import { Switch, Route } from 'react-router-dom';
+
+// import Signup from './components/signup';
+//import Login from './components/login';
+import { Login}  from './components/login';
+// import Main from './components/main'
 
 class App extends Component {
   constructor(props) {
@@ -22,9 +28,26 @@ class App extends Component {
   
     return (
       <div>
-        {/* <MainContainer/> */}
-        <h1>hello world !!</h1>
-        <h2>{this.state.stuff}</h2>
+        <h1>this is APP page</h1>
+        <main>
+        {/* <Switch>
+          <Route
+            exact
+            path="/"
+            component={Login}
+          />
+          <Route
+            exact
+            path="/signup"
+            component={Signup}
+          />
+          <Route
+            exact
+            path="/main"
+            component={Main}
+          />
+        </Switch> */}
+        </main>
       </div>
     )
   }
