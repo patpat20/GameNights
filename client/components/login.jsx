@@ -15,7 +15,7 @@ class Login extends Component {
     // const datog(JSON.stringify(data))
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    console.log({ username, password })
+    console.log({ username, password , yes: '1'})
 
     fetch('/api/login', {
       method: 'POST',
@@ -28,14 +28,14 @@ class Login extends Component {
       })
     })
     .then(res => {
-      res.json();
+      return res.json();
     })
-    .then(data => console.log(data))
+    .then(data => console.log('this is data: ' + data))
+    .catch(err => console.log('errorrr: ' + err))
 
     // get the results of the fetch (API call... don't do redirect there...should status..)
     // if login successful then redirect (happy)
     // if loging failed rethen redirect (sad)
-    console.log(body)
   }
 
   render() {

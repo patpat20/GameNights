@@ -39,7 +39,7 @@ userController.verifyUser = async (req, res, next) => {
     FROM profiles
     WHERE username = '${username}'` // added hard coded '' b/c search was not viewed as a string
     const resultObj = await db.query(text);
-    if (!resultObj) {
+    if (!resultObj.rows.length) {
       console.log('no results found')
       return res.status(404).json('user not found')
     }
@@ -48,7 +48,7 @@ userController.verifyUser = async (req, res, next) => {
       .compare(password, dbPass)
       .then(isUserFound => {
         if (!isUserFound) {
-          return res.status(400).send('invalid password');
+          return res.status(400).json('invalid password');
         }
 
         // User is found

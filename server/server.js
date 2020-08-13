@@ -40,7 +40,7 @@ app.post('/api/login',
   // sessionController.startSession, 
   userController.verifyUser,
   (req, res) => {
-    return res.status(200).send('hi');
+    return res.status(200).json('hi');
   });
 
 // >>>>> adjust event/games db <<<<<<
