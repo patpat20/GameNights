@@ -15,10 +15,11 @@ class Login extends Component {
     // const datog(JSON.stringify(data))
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    console.log({ username, password , yes: '1'})
+    console.log({ username, password, yes: '1' })
 
     fetch('/api/login', {
       method: 'POST',
+      redirect: "follow",
       headers: {
         "Content-Type": "Application/JSON"
       },
@@ -27,11 +28,15 @@ class Login extends Component {
         password
       })
     })
-    .then(res => {
-      return res.json();
-    })
-    .then(data => console.log('this is data: ' + data))
-    .catch(err => console.log('errorrr: ' + err))
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log (data.url)
+        res.redirect(301, res.url)
+        console.log('this is data: ' + data)
+      })
+      .catch(err => console.log('errorrr: ' + err))
 
     // get the results of the fetch (API call... don't do redirect there...should status..)
     // if login successful then redirect (happy)
